@@ -40,6 +40,11 @@ export function LeadMagnet({ variant = "default", id }: LeadMagnetProps) {
       return;
     }
     setLoading(true);
+    if (!supabase) {
+      setLoading(false);
+      toast.error("Formulier is nog niet geconfigureerd.");
+      return;
+    }
     const { error } = await supabase
       .from("lead_magnet_signups")
       .insert({ first_name: parsed.data.first_name, email: parsed.data.email });
