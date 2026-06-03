@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.99 0.002 280);
+  --foreground: oklch(0.14 0.02 260);
+  --card: oklch(0.99 0.002 280);
+  --card-foreground: oklch(0.14 0.02 260);
+  --popover: oklch(0.99 0.002 280);
+  --popover-foreground: oklch(0.14 0.02 260);
+  --primary: oklch(0.56 0.22 280);
+  --primary-foreground: oklch(0.99 0.002 280);
+  --secondary: oklch(0.96 0.005 280);
+  --secondary-foreground: oklch(0.14 0.02 260);
+  --muted: oklch(0.96 0.005 280);
+  --muted-foreground: oklch(0.52 0.01 260);
+  --accent: oklch(0.96 0.005 280);
+  --accent-foreground: oklch(0.14 0.02 260);
+  --destructive: oklch(0.57 0.22 25);
+  --destructive-foreground: oklch(0.99 0.002 280);
+  --border: oklch(0.9 0.005 280);
+  --input: oklch(0.9 0.005 280);
+  --ring: oklch(0.56 0.22 280);
+  --radius: 0.625rem;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: var(--font-display);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --shadow-card: 0 4px 24px oklch(0 0 0 / 0.06), 0 1px 4px oklch(0 0 0 / 0.04);
+  --shadow-soft: 0 8px 32px oklch(0 0 0 / 0.08);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, oklch(0.96 0.015 280) 0%, oklch(0.98 0.008 260) 50%, oklch(0.97 0.012 290) 100%);
+}
+
+.accent-italic {
+  font-style: italic;
+  color: var(--primary);
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
