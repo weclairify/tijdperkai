@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { GetStartedButton } from "@/components/ui/get-started-button";
 
 const links = [
   { href: "#programma", label: "Programma" },
@@ -29,9 +30,9 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild className="rounded-sm bg-primary px-5 text-primary-foreground hover:bg-primary/90">
-            <a href="#intake">Plan je gratis intake (20 min) <ArrowRight className="ml-1 h-4 w-4" /></a>
-          </Button>
+          <GetStartedButton href="#intake" size="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
+            Plan je gratis intake
+          </GetStartedButton>
         </div>
         <button onClick={() => setOpen(!open)} className="md:hidden" aria-label="Menu">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

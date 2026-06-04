@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Users, MapPin, Wallet } from "lucide-react";
+import { Calendar, Users, MapPin, Wallet } from "lucide-react";
 import heroImage from "@/assets/hero.jpg";
 import { AuroraBackground } from "@/components/site/AuroraBackground";
 import { HandWrittenTitle } from "@/components/site/HandWrittenTitle";
+import { GetStartedButton } from "@/components/ui/get-started-button";
 
 export function Hero() {
   return (
@@ -25,9 +26,9 @@ export function Hero() {
             assistenten en agents, met <span className="font-semibold text-foreground">docentengids & lesmateriaal</span>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-sm bg-primary px-6 text-primary-foreground hover:bg-primary/90">
-              <a href="#intake">Plan je gratis intake (20 min) <ArrowRight className="ml-1 h-4 w-4" /></a>
-            </Button>
+            <GetStartedButton href="#intake" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              Plan je gratis intake (20 min)
+            </GetStartedButton>
             <Button asChild size="lg" variant="outline" className="rounded-sm border-foreground/20 bg-background px-6">
               <a href="#programma">Bekijk het programma</a>
             </Button>
