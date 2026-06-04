@@ -24,7 +24,7 @@
   --input: oklch(0.9 0.005 280);
   --ring: oklch(0.56 0.22 280);
   --radius: 0.625rem;
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: "Poppins", system-ui, sans-serif;
 }
 
 @theme inline {
