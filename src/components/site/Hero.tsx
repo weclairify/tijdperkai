@@ -25,7 +25,7 @@ export function Hero() {
             assistenten en agents, met <span className="font-semibold text-foreground">docentengids & lesmateriaal</span>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-md bg-primary px-6 text-primary-foreground hover:bg-primary/90">
+            <Button asChild size="lg" className="rounded-sm bg-primary px-6 text-primary-foreground hover:bg-primary/90">
               <a href="#intake">Plan je gratis intake (20 min) <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-md border-foreground/20 bg-background px-6">
@@ -43,7 +43,7 @@ export function Hero() {
           </div>
         </div>
         <div className="relative">
-          <div className="aspect-[4/5] w-full overflow-hidden rounded-xl bg-primary/10 shadow-soft">
+          <div className="aspect-[4/5] w-full overflow-hidden rounded-none bg-primary/10 shadow-soft">
             <img
               src={heroImage}
               alt="Weclairify AI opleiding, docent aan de Amsterdamse grachten"
@@ -51,7 +51,7 @@ export function Hero() {
               loading="eager"
             />
           </div>
-          <div className="absolute -bottom-6 -left-6 rounded-lg bg-background py-10 px-8 shadow-card md:-left-10">
+          <div className="absolute -bottom-6 -left-6 rounded-none bg-background py-10 px-8 shadow-card md:-left-10">
             <HandWrittenTitle title="€2.950" subtitle="Investering per deelnemer, incl. lesmateriaal & lunch" />
           </div>
         </div>

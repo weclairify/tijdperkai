@@ -19,7 +19,7 @@ export function Outcomes() {
         </div>
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map((i, idx) => (
-            <div key={i.t} className="rounded-lg border border-border bg-card p-6">
+            <div key={i.t} className="rounded-none border border-border bg-card p-6">
               <div className="font-display text-2xl font-bold text-primary">0{idx + 1}</div>
               <div className="mt-3 font-semibold">{i.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{i.d}</p>

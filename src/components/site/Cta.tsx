@@ -12,10 +12,10 @@ export function Cta() {
           Plan een gratis, vrijblijvende intake van 20 minuten. We kijken samen of de opleiding bij je past, en welke editie het beste werkt.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Button asChild size="lg" className="rounded-md bg-primary-foreground px-7 text-primary hover:bg-primary-foreground/90">
+          <Button asChild size="lg" className="rounded-sm bg-primary-foreground px-7 text-primary hover:bg-primary-foreground/90">
             <a href="mailto:hello@weclairify.com">Plan je gratis intake (20 min) <ArrowRight className="ml-1 h-4 w-4" /></a>
           </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-md border-primary-foreground/40 bg-transparent px-7 text-primary-foreground hover:bg-primary-foreground/10">
+          <Button asChild size="lg" variant="outline" className="rounded-sm border-primary-foreground/40 bg-transparent px-7 text-primary-foreground hover:bg-primary-foreground/10">
             <a href="#programma">Bekijk het programma</a>
           </Button>
         </div>

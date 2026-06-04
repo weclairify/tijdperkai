@@ -52,7 +52,7 @@ export function Reviews() {
         </div>
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {reviews.map((r, i) => (
-            <figure key={i} className="flex flex-col rounded-xl border border-border bg-card p-7 shadow-card">
+            <figure key={i} className="flex flex-col rounded-none border border-border bg-card p-7 shadow-card">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-display text-lg font-bold">{r.client}</div>

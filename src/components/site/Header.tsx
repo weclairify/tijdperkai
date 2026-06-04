@@ -29,7 +29,7 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild className="rounded-md bg-primary px-5 text-primary-foreground hover:bg-primary/90">
+          <Button asChild className="rounded-sm bg-primary px-5 text-primary-foreground hover:bg-primary/90">
             <a href="#intake">Plan je gratis intake (20 min) <ArrowRight className="ml-1 h-4 w-4" /></a>
           </Button>
         </div>
@@ -45,7 +45,7 @@ export function Header() {
                 {l.label}
               </a>
             ))}
-            <Button asChild className="mt-2 rounded-md bg-primary text-primary-foreground">
+            <Button asChild className="mt-2 rounded-sm bg-primary text-primary-foreground">
               <a href="#intake">Plan je gratis intake (20 min)</a>
             </Button>
           </div>

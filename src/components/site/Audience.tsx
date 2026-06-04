@@ -22,7 +22,7 @@ export function Audience() {
           </h2>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <div className="rounded-xl border border-primary/30 bg-primary-tint p-8">
+          <div className="rounded-none border border-primary/30 bg-primary-tint p-8">
             <div className="text-xs font-medium uppercase tracking-wider text-primary">Wel voor jou</div>
             <ul className="mt-6 space-y-4">
               {yes.map((y) => (
@@ -35,7 +35,7 @@ export function Audience() {
               ))}
             </ul>
           </div>
-          <div className="rounded-xl border border-border bg-card p-8">
+          <div className="rounded-none border border-border bg-card p-8">
             <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Niet voor jou</div>
             <ul className="mt-6 space-y-4">
               {no.map((n) => (

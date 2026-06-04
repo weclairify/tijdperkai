@@ -98,9 +98,9 @@ export function Pricing() {
               )}
             >
               {/* Hand-drawn shadow */}
-              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-lg bg-foreground" />
+              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-none bg-foreground" />
 
-              <div className="relative h-full rounded-lg border-2 border-foreground bg-card p-6 flex flex-col">
+              <div className="relative h-full rounded-none border-2 border-foreground bg-card p-6 flex flex-col">
                 {tier.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2 rounded border-2 border-foreground bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
                     Meest gekozen!
@@ -138,7 +138,7 @@ export function Pricing() {
 
                 <Button
                   asChild
-                  className="mt-8 rounded-md border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="mt-8 rounded-sm border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <a href="#intake">{tier.cta}</a>
                 </Button>

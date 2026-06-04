@@ -57,7 +57,7 @@ export function LeadMagnet({ variant = "default", id }: LeadMagnetProps) {
   return (
     <section id={id} className={variant === "compact" ? "py-16" : "py-24"}>
       <div className="mx-auto max-w-6xl px-5">
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-card">
+        <div className="overflow-hidden rounded-none border border-border bg-card shadow-card">
           <div className="grid gap-0 lg:grid-cols-5">
             <div className="gradient-hero relative p-8 md:p-12 lg:col-span-3">
               <span className="inline-flex items-center gap-2 rounded border border-primary/20 bg-background/60 px-4 py-1.5 text-xs font-medium text-primary backdrop-blur">
@@ -134,7 +134,7 @@ export function LeadMagnet({ variant = "default", id }: LeadMagnetProps) {
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="mt-5 w-full rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
+                    className="mt-5 w-full rounded-sm bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     {loading ? "Verzenden..." : (<>Download de gids <Download className="ml-1 h-4 w-4" /></>)}
                   </Button>

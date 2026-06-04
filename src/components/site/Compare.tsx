@@ -23,7 +23,7 @@ export function Compare() {
           </h2>
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-2">
-          <div className="rounded-xl border border-border bg-card p-8">
+          <div className="rounded-none border border-border bg-card p-8">
             <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Huidige situatie</div>
             <ul className="mt-6 space-y-6">
               {left.map((i) => (
@@ -37,7 +37,7 @@ export function Compare() {
               ))}
             </ul>
           </div>
-          <div className="rounded-xl border border-primary/30 bg-primary-tint p-8 shadow-soft">
+          <div className="rounded-none border border-primary/30 bg-primary-tint p-8 shadow-soft">
             <div className="text-xs font-medium uppercase tracking-wider text-primary">Na deze opleiding</div>
             <ul className="mt-6 space-y-6">
               {right.map((i) => (

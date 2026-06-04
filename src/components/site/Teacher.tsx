@@ -5,7 +5,7 @@ export function Teacher() {
     <section id="docent" className="py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2">
         <div className="order-2 lg:order-1">
-          <div className="aspect-[4/5] overflow-hidden rounded-xl bg-primary/10 shadow-soft">
+          <div className="aspect-[4/5] overflow-hidden rounded-none bg-primary/10 shadow-soft">
             <img
               src={teacherImage}
               alt="Claire, oprichter Weclairify"
