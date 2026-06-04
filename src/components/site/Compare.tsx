@@ -1,5 +1,5 @@
-import { X } from "lucide-react";
 import { HandCheck } from "@/components/ui/hand-check";
+import { HandX } from "@/components/ui/hand-x";
 
 const left = [
   { t: "Eindeloos prompten zonder resultaat", d: "Je probeert wat, maar weet niet waarom iets wel of niet werkt." },
@@ -28,8 +28,8 @@ export function Compare() {
             <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Huidige situatie</div>
             <ul className="mt-6 space-y-6">
               {left.map((i) => (
-                <li key={i.t} className="flex gap-4">
-                  <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-sm bg-muted text-muted-foreground"><X className="h-3.5 w-3.5" /></span>
+                <li key={i.t} className="flex gap-4 items-start">
+                  <HandX className="mt-1 h-6 w-6 shrink-0 text-muted-foreground" />
                   <div>
                     <div className="font-semibold">{i.t}</div>
                     <p className="mt-1 text-sm text-muted-foreground">{i.d}</p>

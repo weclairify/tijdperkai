@@ -1,5 +1,5 @@
-import { X } from "lucide-react";
 import { HandCheck } from "@/components/ui/hand-check";
+import { HandX } from "@/components/ui/hand-x";
 
 const yes = [
   "Je werkt met informatie, tekst of klanten en wil sneller werken",
@@ -27,7 +27,7 @@ export function Audience() {
             <div className="text-xs font-medium uppercase tracking-wider text-primary">Wel voor jou</div>
             <ul className="mt-6 space-y-4">
               {yes.map((y) => (
-                <li key={y} className="flex gap-3">
+                <li key={y} className="flex gap-3 items-start">
                   <HandCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
                   <span className="text-foreground/85">{y}</span>
                 </li>
@@ -38,10 +38,8 @@ export function Audience() {
             <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Niet voor jou</div>
             <ul className="mt-6 space-y-4">
               {no.map((n) => (
-                <li key={n} className="flex gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-sm bg-muted text-muted-foreground">
-                    <X className="h-3.5 w-3.5" />
-                  </span>
+                <li key={n} className="flex gap-3 items-start">
+                  <HandX className="mt-0.5 h-6 w-6 shrink-0 text-muted-foreground" />
                   <span className="text-foreground/85">{n}</span>
                 </li>
               ))}
