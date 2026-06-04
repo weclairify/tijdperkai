@@ -1,4 +1,4 @@
-import { memo, useId, forwardRef } from 'react';
+import React, { memo, useId, forwardRef } from 'react';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 
 const ICON_VARIANTS = {
@@ -29,18 +29,13 @@ const BUTTON_VARIANTS = {
   animate: { y: 0, opacity: 1, transition: { duration: 0.4, delay: 0.3 } },
 };
 
-export const cn = (...classes: (string | undefined | false | null)[]) =>
-  classes.filter(Boolean).join(' ');
-
-type Theme = 'light' | 'dark' | 'neutral';
-type Variant = 'default' | 'subtle' | 'error';
-type Size = 'sm' | 'default' | 'lg';
+export const cn = (...classes: (string | undefined | false | null)[]) => classes.filter(Boolean).join(' ');
 
 interface IconContainerProps {
   children: React.ReactNode;
   variant: 'left' | 'center' | 'right';
   className?: string;
-  theme?: Theme;
+  theme: 'light' | 'dark' | 'neutral';
 }
 
 const IconContainer = memo(({ children, variant, className = '', theme }: IconContainerProps) => (
@@ -68,11 +63,12 @@ IconContainer.displayName = "IconContainer";
 
 interface MultiIconDisplayProps {
   icons: React.ReactNode[];
-  theme?: Theme;
+  theme: 'light' | 'dark' | 'neutral';
 }
 
 const MultiIconDisplay = memo(({ icons, theme }: MultiIconDisplayProps) => {
   if (!icons || icons.length < 3) return null;
+
   return (
     <div className="flex justify-center isolate relative">
       <IconContainer variant="left" className="left-2 top-1 z-10" theme={theme}>
@@ -89,7 +85,7 @@ const MultiIconDisplay = memo(({ icons, theme }: MultiIconDisplayProps) => {
 });
 MultiIconDisplay.displayName = "MultiIconDisplay";
 
-const Background = ({ theme }: { theme?: Theme }) => (
+const Background = ({ theme }: { theme: string }) => (
   <div
     aria-hidden="true"
     className="absolute inset-0 opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500"
@@ -100,98 +96,120 @@ const Background = ({ theme }: { theme?: Theme }) => (
   />
 );
 
-interface EmptyStateAction {
+export interface EmptyStateAction {
   label: string;
-  onClick: () => void;
   icon?: React.ReactNode;
+  onClick?: () => void;
   disabled?: boolean;
 }
 
-interface EmptyStateProps {
+export interface EmptyStateProps extends React.HTMLAttributes<HTMLElement> {
   title: string;
   description?: string;
   icons?: React.ReactNode[];
   action?: EmptyStateAction;
-  variant?: Variant;
-  size?: Size;
-  theme?: Theme;
+  variant?: 'default' | 'subtle' | 'error';
+  size?: 'sm' | 'default' | 'lg';
+  theme?: 'light' | 'dark' | 'neutral';
   isIconAnimated?: boolean;
   className?: string;
-  [key: string]: unknown;
 }
 
-export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>((
-  {
-    title,
-    description,
-    icons,
-    action,
-    variant = 'default',
-    size = 'default',
-    theme = 'light',
-    isIconAnimated = true,
-    className = '',
-    ...props
-  },
-  ref
-) => {
+export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>(({
+  title,
+  description,
+  icons,
+  action,
+  variant = 'default',
+  size = 'default',
+  theme = 'light',
+  isIconAnimated = true,
+  className = '',
+  ...props
+}, ref) => {
   const titleId = useId();
   const descriptionId = useId();
 
   const baseClasses = "group transition-all duration-300 rounded-xl relative overflow-hidden text-center flex flex-col items-center justify-center";
 
-  const sizeClasses: Record<Size, string> = {
+  const sizeClasses: Record<string, string> = {
     sm: "p-6",
     default: "p-8",
     lg: "p-12"
   };
 
-  const variantClasses: Record<Variant, Record<Theme, string>> = {
-    default: {
-      light: "bg-white border-dashed border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50/50",
-      dark: "bg-neutral-900 border-dashed border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-800/50",
-      neutral: "bg-stone-50 border-dashed border-2 border-stone-300 hover:border-stone-400 hover:bg-stone-100/50"
-    },
-    subtle: {
-      light: "bg-white border border-transparent hover:bg-gray-50/30",
-      dark: "bg-neutral-900 border border-transparent hover:bg-neutral-800/30",
-      neutral: "bg-stone-50 border border-transparent hover:bg-stone-100/30"
-    },
-    error: {
-      light: "bg-white border border-red-200 bg-red-50/50 hover:bg-red-50/80",
-      dark: "bg-neutral-900 border border-red-800 bg-red-950/50 hover:bg-red-950/80",
-      neutral: "bg-stone-50 border border-red-300 bg-red-50/50 hover:bg-red-50/80"
-    }
+  const getVariantClasses = (variant: string, theme: string) => {
+    const variants: Record<string, Record<string, string>> = {
+      default: {
+        light: "bg-white border-dashed border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50/50",
+        dark: "bg-neutral-900 border-dashed border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-800/50",
+        neutral: "bg-stone-50 border-dashed border-2 border-stone-300 hover:border-stone-400 hover:bg-stone-100/50"
+      },
+      subtle: {
+        light: "bg-white border border-transparent hover:bg-gray-50/30",
+        dark: "bg-neutral-900 border border-transparent hover:bg-neutral-800/30",
+        neutral: "bg-stone-50 border border-transparent hover:bg-stone-100/30"
+      },
+      error: {
+        light: "bg-white border border-red-200 bg-red-50/50 hover:bg-red-50/80",
+        dark: "bg-neutral-900 border border-red-800 bg-red-950/50 hover:bg-red-950/80",
+        neutral: "bg-stone-50 border border-red-300 bg-red-50/50 hover:bg-red-50/80"
+      }
+    };
+    return variants[variant][theme];
   };
 
-  const titleSizes: Record<Size, string> = { sm: "text-base", default: "text-lg", lg: "text-xl" };
-  const descSizes: Record<Size, string> = { sm: "text-xs", default: "text-sm", lg: "text-base" };
-  const titleColors: Record<Theme, string> = { light: "text-gray-900", dark: "text-neutral-100", neutral: "text-stone-900" };
-  const descColors: Record<Theme, string> = { light: "text-gray-600", dark: "text-neutral-400", neutral: "text-stone-600" };
+  const getTextClasses = (type: 'title' | 'description', size: string, theme: string) => {
+    const sizes: Record<string, Record<string, string>> = {
+      title: { sm: "text-base", default: "text-lg", lg: "text-xl" },
+      description: { sm: "text-xs", default: "text-sm", lg: "text-base" }
+    };
 
-  const btnSizes: Record<Size, string> = {
-    sm: "text-xs px-3 py-1.5",
-    default: "text-sm px-4 py-2",
-    lg: "text-base px-6 py-3"
+    const colors: Record<string, Record<string, string>> = {
+      title: { light: "text-gray-900", dark: "text-neutral-100", neutral: "text-stone-900" },
+      description: { light: "text-gray-600", dark: "text-neutral-400", neutral: "text-stone-600" }
+    };
+
+    return cn(sizes[type][size], colors[type][theme], "font-semibold transition-colors duration-200");
   };
-  const btnThemes: Record<Theme, string> = {
-    light: "border-gray-300 bg-white hover:bg-gray-50 text-gray-700",
-    dark: "border-neutral-600 bg-neutral-800 hover:bg-neutral-700 text-neutral-200",
-    neutral: "border-stone-300 bg-stone-100 hover:bg-stone-200 text-stone-700"
+
+  const getButtonClasses = (size: string, theme: string) => {
+    const sizeClasses: Record<string, string> = {
+      sm: "text-xs px-3 py-1.5",
+      default: "text-sm px-4 py-2",
+      lg: "text-base px-6 py-3"
+    };
+
+    const themeClasses: Record<string, string> = {
+      light: "border-gray-300 bg-white hover:bg-gray-50 text-gray-700",
+      dark: "border-neutral-600 bg-neutral-800 hover:bg-neutral-700 text-neutral-200",
+      neutral: "border-stone-300 bg-stone-100 hover:bg-stone-200 text-stone-700"
+    };
+
+    return cn(
+      "inline-flex items-center gap-2 border rounded-md font-medium shadow-sm hover:shadow-md transition-all duration-200 relative overflow-hidden group/button disabled:opacity-50 disabled:cursor-not-allowed",
+      sizeClasses[size],
+      themeClasses[theme]
+    );
   };
 
   return (
     <LazyMotion features={domAnimation}>
       <motion.section
-        ref={ref}
+        ref={ref as React.Ref<HTMLElement>}
         role="region"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className={cn(baseClasses, sizeClasses[size], variantClasses[variant][theme], className)}
+        className={cn(
+          baseClasses,
+          sizeClasses[size],
+          getVariantClasses(variant, theme),
+          className
+        )}
         initial="initial"
         animate="animate"
         whileHover={isIconAnimated ? "hover" : "animate"}
-        {...(props as object)}
+        {...(props as React.ComponentProps<typeof motion.section>)}
       >
         <Background theme={theme} />
         <div className="relative z-10 flex flex-col items-center">
@@ -200,27 +218,31 @@ export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>((
               <MultiIconDisplay icons={icons} theme={theme} />
             </div>
           )}
+
           <motion.div variants={CONTENT_VARIANTS} className="space-y-2 mb-6">
-            <h2 id={titleId} className={cn(titleSizes[size], titleColors[theme], "font-semibold transition-colors duration-200")}>
+            <h2 id={titleId} className={getTextClasses('title', size, theme)}>
               {title}
             </h2>
             {description && (
-              <p id={descriptionId} className={cn(descSizes[size], descColors[theme], "max-w-md leading-relaxed")}>
+              <p
+                id={descriptionId}
+                className={cn(
+                  getTextClasses('description', size, theme).replace('font-semibold', ''),
+                  "max-w-md leading-relaxed"
+                )}
+              >
                 {description}
               </p>
             )}
           </motion.div>
+
           {action && (
             <motion.div variants={BUTTON_VARIANTS}>
               <motion.button
                 type="button"
                 onClick={action.onClick}
                 disabled={action.disabled}
-                className={cn(
-                  "inline-flex items-center gap-2 border rounded-md font-medium shadow-sm hover:shadow-md transition-all duration-200 relative overflow-hidden group/button disabled:opacity-50 disabled:cursor-not-allowed",
-                  btnSizes[size],
-                  btnThemes[theme]
-                )}
+                className={getButtonClasses(size, theme)}
                 whileTap={{ scale: 0.98 }}
               >
                 {action.icon && (
