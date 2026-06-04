@@ -98,11 +98,11 @@ export function Pricing() {
               )}
             >
               {/* Hand-drawn shadow */}
-              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-2xl bg-foreground" />
+              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-lg bg-foreground" />
 
-              <div className="relative h-full rounded-2xl border-2 border-foreground bg-card p-6 flex flex-col">
+              <div className="relative h-full rounded-lg border-2 border-foreground bg-card p-6 flex flex-col">
                 {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2 rounded-full border-2 border-foreground bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2 rounded border-2 border-foreground bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
                     Meest gekozen!
                   </div>
                 )}
@@ -110,7 +110,7 @@ export function Pricing() {
                 <div className="flex items-center gap-4">
                   <div
                     className={cn(
-                      "flex h-12 w-12 items-center justify-center rounded-xl border-2 border-foreground",
+                      "flex h-12 w-12 items-center justify-center rounded-md border-2 border-foreground",
                       colorMap[tier.color]
                     )}
                   >
@@ -138,7 +138,7 @@ export function Pricing() {
 
                 <Button
                   asChild
-                  className="mt-8 rounded-full border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="mt-8 rounded-md border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <a href="#intake">{tier.cta}</a>
                 </Button>

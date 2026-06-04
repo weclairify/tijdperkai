@@ -57,10 +57,10 @@ export function LeadMagnet({ variant = "default", id }: LeadMagnetProps) {
   return (
     <section id={id} className={variant === "compact" ? "py-16" : "py-24"}>
       <div className="mx-auto max-w-6xl px-5">
-        <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-card">
           <div className="grid gap-0 lg:grid-cols-5">
             <div className="gradient-hero relative p-8 md:p-12 lg:col-span-3">
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/60 px-4 py-1.5 text-xs font-medium text-primary backdrop-blur">
+              <span className="inline-flex items-center gap-2 rounded border border-primary/20 bg-background/60 px-4 py-1.5 text-xs font-medium text-primary backdrop-blur">
                 <BookOpen className="h-3.5 w-3.5" />
                 Gratis lead magnet, PDF
               </span>
@@ -82,7 +82,7 @@ export function LeadMagnet({ variant = "default", id }: LeadMagnetProps) {
             <div className="border-t border-border bg-background p-8 md:p-12 lg:col-span-2 lg:border-l lg:border-t-0">
               {success ? (
                 <div className="flex h-full flex-col items-center justify-center text-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-md bg-primary/10">
                     <CheckCircle2 className="h-7 w-7 text-primary" />
                   </div>
                   <h3 className="mt-5 font-display text-2xl font-bold">Gids onderweg!</h3>
@@ -93,7 +93,7 @@ export function LeadMagnet({ variant = "default", id }: LeadMagnetProps) {
               ) : (
                 <form onSubmit={handleSubmit} className="flex h-full flex-col justify-center">
                   <div className="mb-5 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
                       <FileText className="h-5 w-5" />
                     </div>
                     <div>
@@ -134,7 +134,7 @@ export function LeadMagnet({ variant = "default", id }: LeadMagnetProps) {
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="mt-5 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+                    className="mt-5 w-full rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     {loading ? "Verzenden..." : (<>Download de gids <Download className="ml-1 h-4 w-4" /></>)}
                   </Button>
