@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Pencil, Star, Sparkles } from "lucide-react";
+import { Pencil, Star, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { HandCheck } from "@/components/ui/hand-check";
 
 interface PricingTier {
   name: string;
@@ -94,30 +95,22 @@ export function Pricing() {
               <div
                 key={tier.name}
                 className="relative cursor-pointer"
-                style={{ transition: "transform 0.2s ease, z-index 0s" }}
                 onClick={() => setActive(isActive ? null : tier.name)}
               >
-                {/* Shadow — shrinks when active */}
                 <div
                   className="absolute inset-0 rounded-none bg-foreground"
                   style={{
-                    transform: isActive
-                      ? "translate(0px, 0px)"
-                      : "translate(4px, 4px)",
+                    transform: isActive ? "translate(0px, 0px)" : "translate(4px, 4px)",
                     transition: "transform 0.2s ease",
                   }}
                 />
-
-                {/* Card */}
                 <div
                   className={cn(
                     "relative h-full rounded-none border-2 border-foreground bg-card p-6 flex flex-col",
                     isActive && "ring-2 ring-primary ring-offset-2"
                   )}
                   style={{
-                    transform: isActive
-                      ? "translate(-3px, -6px) scale(1.02)"
-                      : "translate(0px, 0px) scale(1)",
+                    transform: isActive ? "translate(-3px, -6px) scale(1.02)" : "translate(0px, 0px) scale(1)",
                     transition: "transform 0.2s ease, box-shadow 0.2s ease",
                     boxShadow: isActive ? "0 20px 40px oklch(0 0 0 / 0.15)" : "none",
                   }}
@@ -129,12 +122,7 @@ export function Pricing() {
                   )}
 
                   <div className="flex items-center gap-4">
-                    <div
-                      className={cn(
-                        "flex h-12 w-12 items-center justify-center rounded-sm border-2 border-foreground",
-                        colorMap[tier.color]
-                      )}
-                    >
+                    <div className={cn("flex h-12 w-12 items-center justify-center rounded-sm border-2 border-foreground", colorMap[tier.color])}>
                       {tier.icon}
                     </div>
                     <div>
@@ -150,8 +138,8 @@ export function Pricing() {
 
                   <ul className="mt-6 flex-1 space-y-3 border-t-2 border-dashed border-foreground/20 pt-6 text-sm">
                     {tier.features.map((f) => (
-                      <li key={f} className="flex gap-3">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <li key={f} className="flex gap-2 items-start">
+                        <HandCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                         <span>{f}</span>
                       </li>
                     ))}

@@ -1,4 +1,5 @@
-import { Check, X } from "lucide-react";
+import { X } from "lucide-react";
+import { HandCheck } from "@/components/ui/hand-check";
 
 const yes = [
   "Je werkt met informatie, tekst of klanten en wil sneller werken",
@@ -27,9 +28,7 @@ export function Audience() {
             <ul className="mt-6 space-y-4">
               {yes.map((y) => (
                 <li key={y} className="flex gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-sm bg-primary text-primary-foreground">
-                    <Check className="h-3.5 w-3.5" />
-                  </span>
+                  <HandCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
                   <span className="text-foreground/85">{y}</span>
                 </li>
               ))}

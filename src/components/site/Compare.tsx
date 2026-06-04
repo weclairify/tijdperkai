@@ -1,4 +1,5 @@
-import { Check, X } from "lucide-react";
+import { X } from "lucide-react";
+import { HandCheck } from "@/components/ui/hand-check";
 
 const left = [
   { t: "Eindeloos prompten zonder resultaat", d: "Je probeert wat, maar weet niet waarom iets wel of niet werkt." },
@@ -41,8 +42,8 @@ export function Compare() {
             <div className="text-xs font-medium uppercase tracking-wider text-primary">Na deze opleiding</div>
             <ul className="mt-6 space-y-6">
               {right.map((i) => (
-                <li key={i.t} className="flex gap-4">
-                  <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-sm bg-primary text-primary-foreground"><Check className="h-3.5 w-3.5" /></span>
+                <li key={i.t} className="flex gap-4 items-start">
+                  <HandCheck className="mt-1 h-6 w-6 shrink-0 text-primary" />
                   <div>
                     <div className="font-semibold">{i.t}</div>
                     <p className="mt-1 text-sm text-muted-foreground">{i.d}</p>
