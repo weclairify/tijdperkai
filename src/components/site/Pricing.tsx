@@ -85,21 +85,13 @@ export function Pricing() {
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
-          {tiers.map((tier, index) => (
-            <div
-              key={tier.name}
-              className={cn(
-                "relative",
-                index === 0 && "rotate-[-1deg]",
-                index === 1 && "rotate-[1deg]",
-                index === 2 && "rotate-[-0.5deg]"
-              )}
-            >
+          {tiers.map((tier) => (
+            <div key={tier.name} className="relative">
               <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-none bg-foreground" />
 
               <div className="relative h-full rounded-none border-2 border-foreground bg-card p-6 flex flex-col">
                 {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2 rounded border-2 border-foreground bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded border-2 border-foreground bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
                     Meest gekozen!
                   </div>
                 )}
