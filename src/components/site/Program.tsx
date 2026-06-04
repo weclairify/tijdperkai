@@ -60,9 +60,9 @@ export function Program() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {days.map((d) => (
-            <article key={d.n} className="flex flex-col rounded-3xl border border-border bg-card p-8 shadow-card">
+            <article key={d.n} className="flex flex-col rounded-none border border-border bg-card p-8 shadow-card">
               <div className="flex items-center gap-4">
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-primary font-display text-lg font-bold text-primary-foreground">
+                <span className="grid h-12 w-12 place-items-center rounded-sm bg-primary font-display text-lg font-bold text-primary-foreground">
                   {d.n}
                 </span>
                 <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{d.tag}</span>
@@ -74,7 +74,7 @@ export function Program() {
                 <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Tools van de dag</div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {d.tools.map((t) => (
-                    <span key={t} className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium">
+                    <span key={t} className="rounded border border-border bg-background px-3 py-1 text-xs font-medium">
                       {t}
                     </span>
                   ))}
@@ -93,19 +93,19 @@ export function Program() {
           ))}
         </div>
 
-        <div className="mx-auto mt-16 max-w-3xl rounded-3xl border border-primary/20 bg-primary-tint p-8 text-center">
+        <div className="mx-auto mt-16 max-w-3xl rounded-none border border-primary/20 bg-primary-tint p-8 text-center">
           <span className="text-xs font-medium uppercase tracking-wider text-primary">Huiswerk tussen de dagen</span>
           <p className="mt-3 font-display text-xl font-semibold md:text-2xl">
             "Tussen de dagen pas je toe wat je geleerd hebt, zodat je op Dag 3 al iets werkends hebt."
           </p>
           <div className="mt-6 grid gap-4 text-left md:grid-cols-2">
-            <div className="rounded-2xl bg-background p-5">
+            <div className="rounded-none bg-background p-5">
               <div className="text-xs font-medium uppercase tracking-wider text-primary">Tussen Dag 1 en 2</div>
               <p className="mt-2 text-sm text-muted-foreground">
                 Deelnemers testen hun AI-plan en nemen één vraag mee naar Dag 2.
               </p>
             </div>
-            <div className="rounded-2xl bg-background p-5">
+            <div className="rounded-none bg-background p-5">
               <div className="text-xs font-medium uppercase tracking-wider text-primary">Tussen Dag 2 en 3</div>
               <p className="mt-2 text-sm text-muted-foreground">
                 Ze bouwen hun eigen assistent, waarbij ondersteuning mogelijk is.

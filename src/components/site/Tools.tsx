@@ -24,7 +24,7 @@ export function Tools() {
         </div>
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {tools.map((t) => (
-            <div key={t.n} className="rounded-2xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-card">
+            <div key={t.n} className="rounded-none border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-card">
               <div className="font-display text-xl font-bold">{t.n}</div>
               <div className="mt-3 text-sm">
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">Sterk in</div>

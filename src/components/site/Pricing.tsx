@@ -81,8 +81,6 @@ export function Pricing() {
               Eenmalige investering,{" "}
               <span className="accent-italic">levenslang profijt</span>.
             </h2>
-            <div className="absolute -right-8 -top-6 rotate-12 text-3xl">{"\n"}</div>
-            <div className="absolute -left-10 top-2 -rotate-12 text-2xl">{"\n"}</div>
           </div>
         </div>
 
@@ -97,12 +95,11 @@ export function Pricing() {
                 index === 2 && "rotate-[-0.5deg]"
               )}
             >
-              {/* Hand-drawn shadow */}
-              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-2xl bg-foreground" />
+              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-none bg-foreground" />
 
-              <div className="relative h-full rounded-2xl border-2 border-foreground bg-card p-6 flex flex-col">
+              <div className="relative h-full rounded-none border-2 border-foreground bg-card p-6 flex flex-col">
                 {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2 rounded-full border-2 border-foreground bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2 rounded border-2 border-foreground bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
                     Meest gekozen!
                   </div>
                 )}
@@ -110,7 +107,7 @@ export function Pricing() {
                 <div className="flex items-center gap-4">
                   <div
                     className={cn(
-                      "flex h-12 w-12 items-center justify-center rounded-xl border-2 border-foreground",
+                      "flex h-12 w-12 items-center justify-center rounded-sm border-2 border-foreground",
                       colorMap[tier.color]
                     )}
                   >
@@ -138,19 +135,13 @@ export function Pricing() {
 
                 <Button
                   asChild
-                  className="mt-8 rounded-full border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="mt-8 rounded-sm border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <a href="#intake">{tier.cta}</a>
                 </Button>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 flex items-center justify-center gap-6 text-muted-foreground">
-          <span className="text-2xl">{"\n"}</span>
-          <span className="text-sm italic">{"\n"}</span>
-          <span className="text-2xl">{"\n"}</span>
         </div>
       </div>
     </section>

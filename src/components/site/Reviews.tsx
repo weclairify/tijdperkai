@@ -52,13 +52,13 @@ export function Reviews() {
         </div>
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {reviews.map((r, i) => (
-            <figure key={i} className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-card">
+            <figure key={i} className="flex flex-col rounded-none border border-border bg-card p-7 shadow-card">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-display text-lg font-bold">{r.client}</div>
                   {r.note && <div className="text-xs text-muted-foreground">{r.note}</div>}
                 </div>
-                <div className="flex items-center gap-1 rounded-full bg-primary-tint px-3 py-1 text-sm font-semibold text-primary">
+                <div className="flex items-center gap-1 rounded bg-primary-tint px-3 py-1 text-sm font-semibold text-primary">
                   <Star className="h-3.5 w-3.5 fill-primary text-primary" /> {r.score}
                 </div>
               </div>
